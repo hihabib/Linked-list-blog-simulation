@@ -74,7 +74,7 @@ blog_node * create_multiple_blog(){
 #define CREATE_MULTIPLE_DEMO_BLOG_DEFINED
 blog_node * create_multiple_demo_blog(){
     int N;
-    printf("How many blog do you want to add? answer: ");
+    printf("How many blogs do you want to add? answer: ");
     write_int(&N);
 
     title_node * title_head = create_demo_title(1);
