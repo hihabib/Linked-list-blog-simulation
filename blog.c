@@ -78,8 +78,21 @@ void display_all_blogs(blog_node * head){
     }
 }
 
+void display_all_title(blog_node * head){
+    title_node * temp = head->title;
+    int i = 1;
+    for(;;){
+        printf("\n%d. %s", i, temp->title);
+        if(temp->next != NULL){
+            temp = temp->next;
+        } else {
+            break;
+        }
+    }
+}
+
 void main(){
     blog_node * head = create_multiple_blog();
-
-    display_all_blogs(head);
+    // display_all_blogs(head);
+    display_all_title(head);
 }
