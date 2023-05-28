@@ -19,7 +19,7 @@ void display_content_by_serial(blog_node * head, int serial){
     content_node * temp = head->content;
     int i = 1;
     for(;;){
-        if(i < 1){
+        if(serial < 1){
             printf("\nInvalid serial number.\nEnter the Serial Number again: ");
             int new_serial;
             write_int(&new_serial);

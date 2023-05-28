@@ -42,13 +42,18 @@ void main(){
         }
 
         for(;;){
-                display_all_blogs(head);
+
+
+
+                display_all_title(head);
                 printf("\n========================\n");
                 printf("Main Menu: \n");
                 printf("1. Add new blog\n");
                 printf("2. Update blog\n");
                 printf("3. Delete blog\n");
-                printf("4. Exit\n");
+                printf("4. View content of\n");
+                printf("5. View all blogs\n");
+                printf("6. Exit\n");
 
                 int operation;
                 printf("Enter a number to select option: ");
@@ -56,7 +61,7 @@ void main(){
                 
                 if(operation == 1){
                     add_new_blog(head);
-                    printf("\nNew blog is added. \nPress any key to read all blogs and get main menu\n");
+                    printf("\nNew blog is added. \nPress any key to read all blog's title and get main menu\n");
                     getchar();
                     printf("\n========================\n");
                 }
@@ -65,7 +70,7 @@ void main(){
                     printf("Which blog do you want to update? : ");
                     write_int(&u);
                     update_blog_by_serial(head, u);
-                    printf("\n%d number blog is updated. \nPress any key to read all blogs and get main menu\n", u);
+                    printf("\n%d number blog is updated. \nPress any key to read all blog's title and get main menu\n", u);
                     getchar();
                     printf("\n========================\n");
                 }
@@ -74,10 +79,27 @@ void main(){
                     printf("\nWhich number of blog do you want to delete? answer: ");
                     write_int(&del);
                     head = delete_blog_by_serial(head, del);
-                    printf("\n%d number blog is deleted. \nPress any key to read all blogs and get main menu\n", del);
+                    printf("\n%d number blog is deleted. \nPress any key to read all blog's title and get main menu\n", del);
                     getchar();
                     printf("\n========================\n");
-                } else if(operation == 4){
+                } 
+                else if(operation == 4){
+                    int view_content;
+                    printf("\nWhich blog content do you want to read? :");
+                    write_int(&view_content);
+                    printf("\n========================\n");
+                    display_content_by_serial(head, view_content);
+                    printf("\n%d number blog content is displayed above. \nPress any key to read all blog's title and get main menu\n", view_content);
+                    getchar();
+                    printf("\n========================\n");
+                } 
+                else if(operation == 5){
+                    display_all_blogs(head);
+                    printf("\nAll blogs are displayed above. \nPress any key to read all blog's title and get main menu\n");
+                    getchar();
+                    printf("\n========================\n");
+                }
+                else if(operation == 6){
                     break;
                 }
             }
