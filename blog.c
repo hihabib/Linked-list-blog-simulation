@@ -39,18 +39,24 @@ blog_node * create_multiple_blog(){
 
     // temporary variable to traverse loop
     blog_node * temp_blog = blog_head;
+    title_node * temp_title = title_head;
+    content_node * temp_content = content_head;
 
     for(int i = 0; i < N-1; i++){
         // create title
         title_node * new_title = create_title();
+        temp_title->next = new_title;
 
         // create content
         content_node * new_content = create_content();
+        temp_content->next = new_content;
 
         blog_node * new_blog = create_single_blog(new_title, new_content);
         temp_blog ->next = new_blog;
 
         temp_blog = temp_blog -> next;
+        temp_title = temp_title -> next;
+        temp_content = temp_content -> next;
     }
 
 
