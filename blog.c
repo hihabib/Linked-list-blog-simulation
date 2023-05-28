@@ -77,3 +77,9 @@ void display_all_blogs(blog_node * head){
         }
     }
 }
+
+void main(){
+    blog_node * head = create_multiple_blog();
+
+    display_all_blogs(head);
+}
