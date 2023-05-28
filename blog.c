@@ -26,3 +26,33 @@ blog_node * create_single_blog(title_node * title, content_node * content){
     blog_body -> next = NULL;
     return blog_body;
 }
+
+blog_node * create_multiple_blog(){
+    int N;
+    printf("How many blog do you want to add? :");
+    scanf("%d", &N);
+    
+    title_node * title_head = create_title();
+    content_node * content_head = create_content();
+    blog_node * blog_head = create_single_blog(title_head, content_head);
+
+    // temporary variable to traverse loop
+    blog_node * temp_blog = blog_head;
+
+    for(int i = 0; i < N-1; i++){
+        // create title
+        title_node * new_title = create_title();
+
+        // create content
+        content_node * new_content = create_content();
+
+        blog_node * new_blog = create_single_blog(new_title, new_content);
+        temp_blog ->next = new_blog;
+
+        temp_blog = temp_blog -> next;
+    }
+
+
+    return blog_head;
+
+}
