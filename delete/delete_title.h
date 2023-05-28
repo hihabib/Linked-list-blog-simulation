@@ -16,9 +16,25 @@
 #include "../types/types.h"
 #endif
 
+#ifndef DELETE_FIRST_TITLE_DEFINED
+#define DELETE_FIRST_TITLE_DEFINED
+title_node * delete_first_title(title_node * head){
+    title_node * temp = head->next;
+    free(head);
+    head = temp;
+    return head;
+}
+#endif
+
 #ifndef DELETE_TITLE_BY_SERIAL_DEFINED
 #define DELETE_TITLE_BY_SERIAL_DEFINED
 title_node * delete_title_by_serial(title_node * head, int serial){
+
+    if(serial == 1){
+        head = delete_first_title(head);
+        return head;
+    }
+
     title_node * p = head;
     title_node * q = head->next;
     int i = 2;
@@ -35,6 +51,7 @@ title_node * delete_title_by_serial(title_node * head, int serial){
             break;
         }
     }
+    return head;
 }
 
 #endif

@@ -16,9 +16,24 @@
 #include "../types/types.h"
 #endif
 
+#ifndef DELETE_FIRST_CONTENT_DEFINED
+#define DELETE_FIRST_CONTENT_DEFINED
+content_node * delete_first_content(content_node * head){
+    content_node * temp = head->next;
+    free(head);
+    head = temp;
+    return head;
+}
+#endif
+
 #ifndef DELETE_CONTENT_BY_SERIAL_DEFINED
 #define DELETE_CONTENT_BY_SERIAL_DEFINED
 content_node * delete_content_by_serial(content_node * head, int serial){
+    
+    if(serial == 1){
+        head = delete_first_content(head);
+        return head;
+    }
     content_node * p = head;
     content_node * q = head->next;
     int i = 2;
@@ -35,6 +50,7 @@ content_node * delete_content_by_serial(content_node * head, int serial){
             break;
         }
     }
+    return head;
 }
 
 #endif

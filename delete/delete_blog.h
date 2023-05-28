@@ -24,12 +24,25 @@
 #include "./delete_content.h"
 #endif
 
+#ifndef DELETE_FIRST_BLOG_DEFINED
+#define DELETE_FIRST_BLOG_DEFINED
+blog_node * delete_first_blog(blog_node * head){
+    blog_node * temp = head->next;
+    free(head);
+    head = temp;
+    return head;
+}
+#endif
 
 
 #ifndef DELETE_BLOG_BY_SERIAL_DEFINED
 #define DELETE_BLOG_BY_SERIAL_DEFINED
 blog_node * delete_blog_by_serial(blog_node * head, int serial){
 
+    if(serial == 1){
+        head = delete_first_blog(head);
+        return head;
+    }
     blog_node * p = head;
     blog_node * q = head->next;
 
@@ -50,6 +63,7 @@ blog_node * delete_blog_by_serial(blog_node * head, int serial){
             break;
         }
     }
+    return head;
 }
 
 #endif

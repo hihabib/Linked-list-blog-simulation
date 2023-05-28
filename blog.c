@@ -26,7 +26,6 @@ void main(){
 
 
     
-    for(;;){
         printf("\n========================\n");
         printf("1. Create new blogs\n");
         printf("2. Create demo blogs\n");
@@ -46,12 +45,11 @@ void main(){
             int del;
             printf("\nWhich number of blog do you want to delete? answer: ");
             write_int(&del);
-            delete_blog_by_serial(head, del);
+            head = delete_blog_by_serial(head, del);
             display_all_blogs(head);
 
         }
         printf("========================\n");
-    }
 
 
 
