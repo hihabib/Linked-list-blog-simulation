@@ -91,9 +91,33 @@ void display_all_title(blog_node * head){
         }
     }
 }
+void display_content_by_serial(blog_node * head, int serial){
+    content_node * temp = head->content;
+    int i = 1;
+    for(;;){
+        if(i < 1){
+            printf("\nInvalid serial number.\nEnter the Serial Number again: ");
+            int new_serial;
+            scanf("%d", &new_serial);
+            getchar(); // consume the `\n` from the input buffer.
+            display_content_by_serial(head, new_serial);
+            break;
+        } else {
+            if(i == serial){
+                printf("\n%s", temp->content);
+                break;
+            } else {
+                temp = temp ->next;
+                i++;
+                continue;
+            }
+        }
+    }
+}
 
 void main(){
     blog_node * head = create_multiple_blog();
     // display_all_blogs(head);
     // display_all_title(head);
+    display_content_by_serial(head, 3);
 }
