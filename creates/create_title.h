@@ -34,8 +34,8 @@ title_node * create_title(){
 title_node * create_demo_title(int serial){
     title_node * title = (title_node *) malloc(sizeof(title_node));
     char serial_str[10];
-    sprintf(serial_str,"%d",serial);
-    char demo_text[TITLE_LENGTH] = "Demo title-";
+    sprintf(serial_str,"%d\n",serial);
+    char demo_text[TITLE_LENGTH] = "Lorem, ipsum dolor sit amet consectetur-";
     strcat(demo_text, serial_str);
 
     strcpy(title->title, demo_text);

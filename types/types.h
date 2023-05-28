@@ -4,7 +4,7 @@
 #endif
 
 #ifndef CONTENT_LENGTH
-#define CONTENT_LENGTH 200
+#define CONTENT_LENGTH 1000
 #endif
 
 #ifndef TITLE_NODE_STRUCTURE

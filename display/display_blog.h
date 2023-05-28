@@ -3,6 +3,7 @@
 #ifndef STDIO_H
 #include <stdio.h>
 #endif
+
 #ifndef TYPES_H
 #include "../types/types.h"
 #endif
@@ -12,10 +13,13 @@
 #define DISPLAY_ALL_BLOGS_DEFINED
 void display_all_blogs(blog_node * head){
     blog_node * temp = head;
-   
+    int i = 1;
     for(;;){
-        printf("\nTitle: %s", ( temp->title ) -> title);
-        printf("\nContent: %s\n", ( temp->content ) -> content);
+       
+            printf("\n%d.\nTitle: %s", i, ( temp->title ) -> title);
+            printf("Content: %s\n", ( temp->content ) -> content);
+            i++;
+      
         if(temp -> next != NULL){
             temp = temp -> next;
         } else {

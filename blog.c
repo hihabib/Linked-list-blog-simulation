@@ -9,7 +9,7 @@
 #include "./display/display_blog.h"
 #include "./display/display_content.h"
 #include "./delete/delete_blog.h"
-
+#include "./update/update_blog.h"
 
 
 struct parsed_json {
@@ -44,9 +44,11 @@ void main(){
         for(;;){
                 display_all_blogs(head);
                 printf("\n========================\n");
+                printf("Main Menu: \n");
                 printf("1. Add new blog\n");
                 printf("2. Update blog\n");
                 printf("3. Delete blog\n");
+                printf("4. Exit\n");
 
                 int operation;
                 printf("Enter a number to select option: ");
@@ -54,16 +56,29 @@ void main(){
                 
                 if(operation == 1){
                     add_new_blog(head);
-                    printf("New blog is added. \nPress any key to read all blogs and get main menu\n");
+                    printf("\nNew blog is added. \nPress any key to read all blogs and get main menu\n");
                     getchar();
+                    printf("\n========================\n");
+                }
+                else if(operation == 2){
+                    int u;
+                    printf("Which blog do you want to update? : ");
+                    write_int(&u);
+                    update_blog_by_serial(head, u);
+                    printf("\n%d number blog is updated. \nPress any key to read all blogs and get main menu\n", u);
+                    getchar();
+                    printf("\n========================\n");
                 }
                 else if(operation == 3){
                     int del;
                     printf("\nWhich number of blog do you want to delete? answer: ");
                     write_int(&del);
                     head = delete_blog_by_serial(head, del);
-                    printf("%d number blog is deleted. \nPress any key to read all blogs and get main menu\n", del);
+                    printf("\n%d number blog is deleted. \nPress any key to read all blogs and get main menu\n", del);
                     getchar();
+                    printf("\n========================\n");
+                } else if(operation == 4){
+                    break;
                 }
             }
      

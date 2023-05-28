@@ -40,8 +40,8 @@ content_node * create_demo_content(int serial){
     content_node * content = (content_node *) malloc(sizeof(content_node));
 
     char serial_str[10];
-    sprintf(serial_str,"%d",serial);
-    char demo_text[TITLE_LENGTH] = "Demo content-";
+    sprintf(serial_str,"%d\n",serial);
+    char demo_text[CONTENT_LENGTH] = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum voluptatum optio esse? Maxime laudantium numquam unde voluptate expedita ullam iste veritatis consectetur! Dolor sit, deleniti, exercitationem cumque voluptatem nulla consequuntur quo veritatis, non aut eligendi. Illo fuga, totam magni quasi inventore quo iusto suscipit provident id. Voluptate assumenda corporis ipsam.-";
     strcat(demo_text, serial_str);
     
     strcpy(content->content, demo_text);

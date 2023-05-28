@@ -65,7 +65,7 @@ blog_node * create_multiple_blog(){
         temp_content = temp_content -> next;
     }
 
-
+    printf("\n\n");
     return blog_head;
 
 }
