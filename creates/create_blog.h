@@ -36,7 +36,7 @@ blog_node * create_single_blog(title_node * title, content_node * content){
 #define CREATE_MULTIPLE_BLOG_DEFINED
 blog_node * create_multiple_blog(){
     int N;
-    printf("How many blog do you want to add? :");
+    printf("How many blog do you want to add? answer: ");
     write_int(&N);
 
     title_node * title_head = create_title();
@@ -55,6 +55,44 @@ blog_node * create_multiple_blog(){
 
         // create content
         content_node * new_content = create_content();
+        temp_content->next = new_content;
+
+        blog_node * new_blog = create_single_blog(new_title, new_content);
+        temp_blog ->next = new_blog;
+
+        temp_blog = temp_blog -> next;
+        temp_title = temp_title -> next;
+        temp_content = temp_content -> next;
+    }
+
+
+    return blog_head;
+
+}
+#endif
+#ifndef CREATE_MULTIPLE_DEMO_BLOG_DEFINED
+#define CREATE_MULTIPLE_DEMO_BLOG_DEFINED
+blog_node * create_multiple_demo_blog(){
+    int N;
+    printf("How many blog do you want to add? answer: ");
+    write_int(&N);
+
+    title_node * title_head = create_demo_title(1);
+    content_node * content_head = create_demo_content(1);
+    blog_node * blog_head = create_single_blog(title_head, content_head);
+
+    // temporary variable to traverse loop
+    blog_node * temp_blog = blog_head;
+    title_node * temp_title = title_head;
+    content_node * temp_content = content_head;
+
+    for(int i = 0; i < N-1; i++){
+        // create title
+        title_node * new_title = create_demo_title(i+2);
+        temp_title->next = new_title;
+
+        // create content
+        content_node * new_content = create_demo_content(i+2);
         temp_content->next = new_content;
 
         blog_node * new_blog = create_single_blog(new_title, new_content);

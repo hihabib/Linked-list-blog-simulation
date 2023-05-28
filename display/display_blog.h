@@ -15,7 +15,7 @@ void display_all_blogs(blog_node * head){
    
     for(;;){
         printf("\nTitle: %s", ( temp->title ) -> title);
-        printf("Content: %s", ( temp->content ) -> content);
+        printf("\nContent: %s\n", ( temp->content ) -> content);
         if(temp -> next != NULL){
             temp = temp -> next;
         } else {
