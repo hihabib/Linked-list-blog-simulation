@@ -16,7 +16,7 @@
 #ifndef DISPLAY_ALL_TITLE_DEFINED
 #define DISPLAY_ALL_TITLE_DEFINED
 
-void display_all_title(blog_node * head){
+title_node * display_all_title(blog_node * head){
     title_node * temp = head->title;
     int i = 1;
     for(;;){
@@ -28,6 +28,8 @@ void display_all_title(blog_node * head){
             break;
         }
     }
+
+    return head->title;
 }
 #endif
 

@@ -8,6 +8,8 @@
 #include "./display/display_title.h"
 #include "./display/display_blog.h"
 #include "./display/display_content.h"
+#include "./delete/delete_blog.h"
+
 
 
 struct parsed_json {
@@ -40,6 +42,13 @@ void main(){
         } else if(n == 2) {
             blog_node * head = create_multiple_demo_blog();
             display_all_blogs(head);
+            printf("\n========================\n");
+            int del;
+            printf("\nWhich number of blog do you want to delete? answer: ");
+            write_int(&del);
+            delete_blog_by_serial(head, del);
+            display_all_blogs(head);
+
         }
         printf("========================\n");
     }
