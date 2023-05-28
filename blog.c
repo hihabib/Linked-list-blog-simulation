@@ -31,6 +31,7 @@ blog_node * create_multiple_blog(){
     int N;
     printf("How many blog do you want to add? :");
     scanf("%d", &N);
+    getchar(); // consume the `\n` from the input buffer.
     
     title_node * title_head = create_title();
     content_node * content_head = create_content();
