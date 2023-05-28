@@ -83,6 +83,7 @@ void display_all_title(blog_node * head){
     int i = 1;
     for(;;){
         printf("\n%d. %s", i, temp->title);
+        i++;
         if(temp->next != NULL){
             temp = temp->next;
         } else {
@@ -94,5 +95,5 @@ void display_all_title(blog_node * head){
 void main(){
     blog_node * head = create_multiple_blog();
     // display_all_blogs(head);
-    display_all_title(head);
+    // display_all_title(head);
 }
