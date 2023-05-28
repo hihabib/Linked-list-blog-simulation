@@ -109,4 +109,27 @@ blog_node * create_multiple_demo_blog(){
 }
 #endif
 
+#ifndef ADD_NEW_BLOG_DEFINED
+#define ADD_NEW_BLOG_DEFINED
+void add_new_blog(blog_node * head){
+    title_node * new_title = create_title();
+    content_node * new_content = create_content();
+    blog_node * new_blog = create_single_blog(new_title, new_content);
+    
+    blog_node * temp = head;
+    for(;;){
+        if(temp -> next != NULL) {
+            temp = temp -> next;
+            continue;
+        } else {
+            (temp -> title) -> next = new_title;
+            (temp -> content) -> next = new_content;
+            temp -> next = new_blog;
+            break;
+        }
+    }
+}
+
+#endif
+
 #endif

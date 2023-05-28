@@ -44,15 +44,20 @@ void main(){
         for(;;){
                 display_all_blogs(head);
                 printf("\n========================\n");
-                printf("1. Delete blog\n");
+                printf("1. Add new blog\n");
                 printf("2. Update blog\n");
-                printf("3. Read blog\n");
-                printf("4. Add new blog\n");
+                printf("3. Delete blog\n");
 
                 int operation;
                 printf("Enter a number to select option: ");
                 write_int(&operation);
+                
                 if(operation == 1){
+                    add_new_blog(head);
+                    printf("New blog is added. \nPress any key to read all blogs and get main menu\n");
+                    getchar();
+                }
+                else if(operation == 3){
                     int del;
                     printf("\nWhich number of blog do you want to delete? answer: ");
                     write_int(&del);
