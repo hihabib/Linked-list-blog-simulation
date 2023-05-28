@@ -26,7 +26,7 @@
 #define CRETE_CONTENT_DEFINED
 content_node * create_content(){
     content_node * content = (content_node *) malloc(sizeof(content_node));
-    printf("\nEnter Content: ");
+    printf("Enter Content: ");
     write_string(content->content, CONTENT_LENGTH);
     content->next = NULL;
     return content;

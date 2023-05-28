@@ -34,22 +34,34 @@ void main(){
         printf("Enter input: ");
         write_int(&n);
         printf("========================\n");
-        
+         blog_node * head;
         if(n == 1){
-            blog_node * head = create_multiple_blog();
-            display_all_blogs(head);
+            head = create_multiple_blog();
         } else if(n == 2) {
-            blog_node * head = create_multiple_demo_blog();
-            display_all_blogs(head);
-            printf("\n========================\n");
-            int del;
-            printf("\nWhich number of blog do you want to delete? answer: ");
-            write_int(&del);
-            head = delete_blog_by_serial(head, del);
-            display_all_blogs(head);
-
+            head = create_multiple_demo_blog();
         }
-        printf("========================\n");
+
+        for(;;){
+                display_all_blogs(head);
+                printf("\n========================\n");
+                printf("1. Delete blog\n");
+                printf("2. Update blog\n");
+                printf("3. Read blog\n");
+                printf("4. Add new blog\n");
+
+                int operation;
+                printf("Enter a number to select option: ");
+                write_int(&operation);
+                if(operation == 1){
+                    int del;
+                    printf("\nWhich number of blog do you want to delete? answer: ");
+                    write_int(&del);
+                    head = delete_blog_by_serial(head, del);
+                    printf("%d number blog is deleted. \nPress any key to read all blogs and get main menu\n", del);
+                    getchar();
+                }
+            }
+     
 
 
 

@@ -21,7 +21,7 @@
 
 title_node * create_title(){
     title_node * title = (title_node *) malloc(sizeof(title_node));
-    printf("\nEnter title: ");
+    printf("Enter title: ");
     write_string(title->title, TITLE_LENGTH);
     title->next = NULL;
     return title;
