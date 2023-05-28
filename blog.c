@@ -2,19 +2,34 @@
 #include <string.h>
 #include <stdlib.h>
 #include "types.h"
-
+#include "./utilities/write.h"
 
 title_node * create_title(){
     title_node * title = (title_node *) malloc(sizeof(title_node));
     printf("\nEnter title: ");
-    fgets(title->title, TITLE_LENGTH, stdin);
+    write_string(title->title, TITLE_LENGTH);
     title->next = NULL;
     return title;
 }
+void display_all_title(blog_node * head){
+    title_node * temp = head->title;
+    int i = 1;
+    for(;;){
+        printf("\n%d. %s", i, temp->title);
+        i++;
+        if(temp->next != NULL){
+            temp = temp->next;
+        } else {
+            break;
+        }
+    }
+}
+
+
 content_node * create_content(){
     content_node * content = (content_node *) malloc(sizeof(content_node));
     printf("\nEnter Content: ");
-    fgets(content->content, CONTENT_LENGTH, stdin);
+    write_string(content->content, CONTENT_LENGTH);
     content->next = NULL;
     return content;
 }
@@ -30,9 +45,8 @@ blog_node * create_single_blog(title_node * title, content_node * content){
 blog_node * create_multiple_blog(){
     int N;
     printf("How many blog do you want to add? :");
-    scanf("%d", &N);
-    getchar(); // consume the `\n` from the input buffer.
-    
+    write_int(&N);
+
     title_node * title_head = create_title();
     content_node * content_head = create_content();
     blog_node * blog_head = create_single_blog(title_head, content_head);
@@ -78,19 +92,7 @@ void display_all_blogs(blog_node * head){
     }
 }
 
-void display_all_title(blog_node * head){
-    title_node * temp = head->title;
-    int i = 1;
-    for(;;){
-        printf("\n%d. %s", i, temp->title);
-        i++;
-        if(temp->next != NULL){
-            temp = temp->next;
-        } else {
-            break;
-        }
-    }
-}
+
 void display_content_by_serial(blog_node * head, int serial){
     content_node * temp = head->content;
     int i = 1;
@@ -98,8 +100,7 @@ void display_content_by_serial(blog_node * head, int serial){
         if(i < 1){
             printf("\nInvalid serial number.\nEnter the Serial Number again: ");
             int new_serial;
-            scanf("%d", &new_serial);
-            getchar(); // consume the `\n` from the input buffer.
+            write_int(&new_serial);
             display_content_by_serial(head, new_serial);
             break;
         } else {
@@ -119,5 +120,5 @@ void main(){
     blog_node * head = create_multiple_blog();
     // display_all_blogs(head);
     // display_all_title(head);
-    display_content_by_serial(head, 3);
+    // display_content_by_serial(head, 3);
 }
