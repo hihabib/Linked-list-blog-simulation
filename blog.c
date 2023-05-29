@@ -16,16 +16,6 @@ struct parsed_json {
 
 };
 void main(){
-    // blog_node * head = create_multiple_blog();
-
-    // blog_node * head = create_multiple_demo_blog();
-    // display_all_blogs(head);
-    // display_all_title(head);
-    // display_content_by_serial(head, 3);
-    // display_title_by_serial(head, 2);
-
-
-    
         printf("\n========================\n");
         printf("1. Create new blogs (Manually)\n");
         printf("2. Create demo blogs (Automatic)\n");
@@ -42,9 +32,6 @@ void main(){
         }
 
         for(;;){
-
-
-
                 display_all_title(head);
                 printf("\n========================\n");
                 printf("Main Menu: \n");
