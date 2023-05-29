@@ -9,7 +9,7 @@
 
 #ifndef TITLE_NODE_STRUCTURE
 #define TITLE_NODE_STRUCTURE
-// Artile Content Container
+// Blog Content Container
 struct title_node {
     char title[TITLE_LENGTH];
     struct title_node * next;
@@ -18,7 +18,7 @@ struct title_node {
 
 #ifndef CONTENT_NODE_STRUCTURE
 #define CONTENT_NODE_STRUCTURE
-// Article Content Container
+// Blog Content Container
 struct content_node {
     char content[CONTENT_LENGTH];
     struct content_node * next;
