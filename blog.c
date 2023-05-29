@@ -11,10 +11,10 @@
 #include "./delete/delete_blog.h"
 #include "./update/update_blog.h"
 
-
 struct parsed_json {
 
 };
+
 void main(){
         printf("\n========================\n");
         printf("1. Create new blogs (Manually)\n");
@@ -118,17 +118,8 @@ void main(){
                         printf("\n========================\n");
                         break;
                     }
-                
-               
                 if(operation == 6){
                     break;
                 }
             }
-     
-
-
-
-
-   
-
 }
