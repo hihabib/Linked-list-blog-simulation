@@ -83,7 +83,7 @@ void main(){
                             break;
                         }
 
-                        if(!update_option == 4){
+                        if(!update_option != 4){
                             printf("\n%d number blog is updated.", u);
                         } else {
                             printf("\nUpdating is canceled");
